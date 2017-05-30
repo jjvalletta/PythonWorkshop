@@ -1,0 +1,311 @@
+%=============================================================================%
+% Author: 	John Joseph Valletta
+% Date: 	23/04/2017
+% Title: 	Python workshop: NumPy/SciPy
+%=============================================================================%
+
+%=============================================================================%
+% Preamble
+%=============================================================================%
+% Libraries
+\documentclass[pdf]{beamer}
+\usepackage[export]{adjustbox}
+\usepackage{framed}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{lightgray}{rgb}{0.92,0.92,0.92}
+\usepackage{listings} % to insert code
+\usepackage{textpos} % textblock
+\usepackage{dirtree} % to make directory trees
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=black} 
+\renewcommand{\d}[1]{\ensuremath{\operatorname{d}\!{#1}}} % derivative d
+
+% Listing set up
+% Python
+\lstdefinestyle{python}{
+language=python,
+formfeed=\newpage,
+basicstyle=\scriptsize\ttfamily,
+commentstyle=\color{deepgreen},%\color{gray},
+%numbers=left,
+%numberstyle=\tiny\color{gray},
+stepnumber=1,
+numbersep=5pt,
+backgroundcolor=\color{lightgray},%\color{white},
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+frame=lines,
+tabsize=4,
+captionpos=b,
+breaklines=true,
+breakatwhitespace=false,
+title=\lstname,
+escapeinside={},
+keywordstyle=\color{deepblue},
+emphstyle=\color{deepred},
+stringstyle=\color{mauve},
+morekeywords={as, lambda, None}
+}
+
+% Presentation configuration
+\mode<presentation>{\usetheme{Madrid}}
+\definecolor{tealblue}{rgb}{0, 0.5, 0.5}
+\usecolortheme[named=tealblue]{structure}
+\useinnertheme{circles} % circles, rectanges, rounded, inmargin
+\usefonttheme[onlymath]{serif} % makes math fonts like the usual LaTeX ones
+\setbeamercovered{transparent=4} % transparent
+\setbeamertemplate{caption}{\raggedright\insertcaption\par} % Remove the word "Figure" from caption %\setbeamertemplate{caption}[default]
+\setbeamertemplate{navigation symbols}{} % don't put navigation tools at the bottom (alternatively \beamertemplatenavigationsymbolsempty)
+\graphicspath{ {../images/} }
+
+% Titlepage
+\title[Python for scientific research]{Python for scientific research}
+\subtitle{Number crunching using \texttt{NumPy/SciPy}}
+\author{John Joseph Valletta}
+\date[June 2017]{June 2017}
+\institute[]{University of Exeter, Penryn Campus, UK}
+\titlegraphic{
+\hfill
+\includegraphics[width=\textwidth, keepaspectratio]{logo.jpg}}
+
+%=============================================================================%
+%=============================================================================%
+% Start of Document
+%=============================================================================%
+%=============================================================================%
+\begin{document}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}
+\titlepage
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}{What we've done so far}
+
+	\begin{enumerate}\addtolength{\itemsep}{1\baselineskip}
+		\item Declare variables using built-in data types and execute operations
+		on them
+		\item Use flow control commands to dictate the order in which commands are run
+		and when
+		\item Encapsulate programs into reusable functions, modules and packages
+		\item \textbf{Next}: Introducing the popular \texttt{NumPy} and \texttt{SciPy} packages
+	\end{enumerate}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}{Motivation}
+
+\begin{itemize}\addtolength{\itemsep}{\baselineskip}
+	\item<1-> We are typically faced by numerical tasks, 
+	such as, computing Pearson's correlation coefficient
+	or generating random numbers
+
+	\item<2-> The \texttt{NumPy} (numeric python) package provides
+	a comprehensive set of mathematical data structures (e.g vector, matrix)
+	and functions (e.g trigonometry, random number generator) 
+
+	\item<3-> The \texttt{SciPy} (scientific python) library builds on top
+	of NumPy to provide a collection of numerical algorithms for: 
+	\begin{itemize}
+		\item<4-> Statistics (e.g correlation coefficient)
+		\item<5-> Signal processing (e.g Fourier transform, filtering)
+		\item<6-> Solving differential equations
+		\item<7-> Optimisation
+		\item<8-> $\ldots$
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{A taste of NumPy}
+
+\begin{lstlisting}[style=python]
+import numpy as np
+
+# 1D array/vector
+x = np.array([1, 2, 3, 4])
+x.min() # return min of array 
+x.max() # return max of array
+x.sum() # sum all elements in array
+
+# 2D array/matrix
+x = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
+x*x # element-element-multiplication
+x.shape # return dimensions of matrix
+np.dot(x, x.transpose()) # matrix multiplication
+\end{lstlisting}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{A taste of NumPy}
+
+\begin{lstlisting}[style=python]
+# Generate random numbers
+np.random.rand() # from a uniform distribution
+np.random.randn() # from a normal distribution
+np.random.randn(5, 5) # 5 x 5 matrix of random numbers
+
+# Create number sequences
+np.arange(0, 1, 0.1) # 0 to 1 in steps of 0.1
+np.linspace(0, 1, 100) # 100 values between 0 and 1
+np.logspace(0, 1, 10) # 10 values between 10^0 and 10^1
+\end{lstlisting}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{A taste of SciPy}
+
+\begin{lstlisting}[style=python]
+import scipy.stats
+
+# Create two random arrays
+x1 = np.random.randn(30)
+x2 = np.random.randn(30)
+
+# Correlation coefficientss
+scipy.stats.pearsonr(x1, x2) # pearson correlation
+scipy.stats.spearmanr(x1, x2) # spearman correlation
+scipy.stats.kendalltau(x1, x2) # kendall correlation
+
+# Statistical tests
+scipy.stats.ttest_ind(x1, x2) # independent t-test
+scipy.stats.mannwhitneyu(x1, x2) #  Mann-Whitney rank test 
+scipy.stats.wilcoxon(x1, x2) # Wilcoxon signed-rank test
+
+# Least-squares regression
+scipy.stats.linregress(x1, x2)
+\end{lstlisting}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{Predator prey equations (Lotka Volterra)}
+
+\begin{align*}
+\frac{\d{x}}{\d{t}} &= \alpha x - \beta xy\\
+\frac{\d{y}}{\d{t}} &= -\gamma y + \delta xy 
+\end{align*}
+
+Where:\\
+$x$: is the number of prey (e.g rabbits)\\
+$y$: is the number of predators (e.g foxes)\\
+%$\frac{\d{x}}{\d{t}}$: prey population growth rate\\
+%$\frac{\d{y}}{\d{t}}$: predator population growth rate\\
+$\alpha$: prey growth rate in the absence of predators\\
+$\beta$: dying rate of prey due to predation\\
+$\gamma$: dying rate of predators in the absence of prey\\
+$\delta$: predator growth rate when consuming prey\\ 
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{Predator prey equations in Python}
+
+\begin{align*}
+\frac{\d{x}}{\d{t}} &= \alpha x - \beta xy\\
+\frac{\d{y}}{\d{t}} &= -\gamma y + \delta xy 
+\end{align*}
+
+\begin{lstlisting}[style=python]
+def predator_prey(x, t):
+    """
+	Predator prey model (Lotka Volterra)
+    """
+    # Constants
+    alpha = 1
+    beta = 0.1
+    gamma = 1.5
+    delta = 0.075
+    
+    # Define differential equation (x = x[0], y = x[1])
+    dx_dt = alpha*x[0] - beta*x[0]*x[1]
+    dy_dt = -gamma*x[1] + delta*x[0]*x[1]
+    
+    return dx_dt, dy_dt
+\end{lstlisting}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{Solve differential equations}
+
+\begin{lstlisting}[style=python] 
+from scipy.integrate import odeint
+
+time = np.linspace(0, 35, 1000) # time vector
+init = [10, 5] # initial condition: 10 prey, 5 predators
+x = odeint(predator_prey, init, time) # solve
+\end{lstlisting}
+
+\vspace{-.8cm}
+
+\visible<2->{
+\begin{center}
+	\includegraphics[width=.65\textwidth]{predator_prey.pdf}
+\end{center}}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{Fourier transform}
+
+\begin{lstlisting}[style=python]
+from scipy.fftpack import fftfreq, fft
+
+# Create frequency vector
+N = len(time)
+freq = fftfreq(N, np.mean(np.diff(time)))
+freq = freq[range(int(N/2))]
+
+# Compute Fast Fourier Transform
+y = fft(x[:, 0])/N # compute and normalise fft
+y = y[range(int(N/2))] # keep only positive frequencies
+\end{lstlisting}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{Fourier transform}
+
+\begin{center}
+	\includegraphics[width=.8\textwidth]{fourier.pdf}
+\end{center}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+% End of Document
+%=============================================================================%
+%=============================================================================%
+\end{document}

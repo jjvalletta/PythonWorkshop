@@ -1,0 +1,282 @@
+%=============================================================================%
+% Author: 	John Joseph Valletta
+% Date: 	09/04/2017
+% Title: 	Python workshop: Flow control
+%=============================================================================%
+
+%=============================================================================%
+% Preamble
+%=============================================================================%
+% Libraries
+\documentclass[pdf]{beamer}
+\usepackage[export]{adjustbox}
+\usepackage{framed}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{lightgray}{rgb}{0.92,0.92,0.92}
+\usepackage{listings} % to insert code
+\usepackage{textpos} % textblock
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=black} 
+
+% Listing set up
+% Python
+\lstdefinestyle{python}{
+language=python,
+formfeed=\newpage,
+basicstyle=\scriptsize\ttfamily,
+commentstyle=\color{deepgreen},%\color{gray},
+%numbers=left,
+%numberstyle=\tiny\color{gray},
+stepnumber=1,
+numbersep=5pt,
+backgroundcolor=\color{lightgray},%\color{white},
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+frame=lines,
+tabsize=4,
+captionpos=b,
+breaklines=true,
+breakatwhitespace=false,
+title=\lstname,
+escapeinside={},
+keywordstyle=\color{deepblue},
+emphstyle=\color{deepred},
+stringstyle=\color{mauve}
+%morekeywords={models, lambda, forms}
+}
+
+% Presentation configuration
+\mode<presentation>{\usetheme{Madrid}}
+\definecolor{tealblue}{rgb}{0, 0.5, 0.5}
+\usecolortheme[named=tealblue]{structure}
+\useinnertheme{circles} % circles, rectanges, rounded, inmargin
+\usefonttheme[onlymath]{serif} % makes math fonts like the usual LaTeX ones
+\setbeamercovered{transparent=4} % transparent
+\setbeamertemplate{caption}{\raggedright\insertcaption\par} % Remove the word "Figure" from caption %\setbeamertemplate{caption}[default]
+\setbeamertemplate{navigation symbols}{} % don't put navigation tools at the bottom (alternatively \beamertemplatenavigationsymbolsempty)
+\graphicspath{ {../images/} }
+
+% Titlepage
+\title[Python for scientific research]{Python for scientific research}
+\subtitle{Flow control}
+\author{John Joseph Valletta}
+\date[June 2017]{June 2017}
+\institute[]{University of Exeter, Penryn Campus, UK}
+\titlegraphic{
+\hfill
+\includegraphics[width=\textwidth, keepaspectratio]{logo.jpg}}
+
+%=============================================================================%
+%=============================================================================%
+% Start of Document
+%=============================================================================%
+%=============================================================================%
+\begin{document}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}
+\titlepage
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}{What we've done so far}
+
+	\begin{enumerate}\addtolength{\itemsep}{1\baselineskip}
+		\item Declare variables using built-in data types and execute operations
+		on them
+		\item \textbf{Next}: Controlling the flow of a program
+	\end{enumerate}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}{Motivation}
+
+\begin{itemize}\addtolength{\itemsep}{1\baselineskip}
+	\item<1-> Executing code one line at a time is useful but limiting
+	\item<2-> \textbf{Flow control} commands lets us dictate the \textbf{order}
+	in which commands are run: 
+	\begin{enumerate}\addtolength{\itemsep}{0.5\baselineskip}
+		\item<3-> \textbf{If-else}: to change what commands are executed
+		under certain conditions
+		\item<4-> \textbf{For loops}: to repeat the same thing $N$ times
+		\item<5-> \textbf{While loops}: to repeat the same thing until a specific condition is met
+	\end{enumerate}
+\end{itemize}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{If-else}
+
+\begin{itemize}
+	\item Print whether the integer $x$ is positive, negative or zero
+
+\begin{lstlisting}[style=python]
+if x > 0:
+    print("x is positive")
+elif x < 0:
+    print("x is negative")
+else:
+    print("x is zero")
+\end{lstlisting}
+
+	\item Note the lack of \{ \} used in other languages; in Python \textbf{indentation} is everything!
+\end{itemize}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{For loops}
+
+\begin{itemize}
+
+\item<1-> Print the integers 1 to 5
+\begin{lstlisting}[style=python]
+for x in range(5):
+    print(x+1)
+\end{lstlisting}
+
+\item<2-> Loop through a list of gene names and print them in upper case
+\begin{lstlisting}[style=python]
+geneNames = ["Irf1", "Ccl3", "Il12rb1", "Ifng", "Cxcl10"]
+for gene in geneNames:
+    print(gene.upper())
+\end{lstlisting}
+
+\end{itemize}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{While loops}
+
+\begin{itemize}
+
+\item Print the integers 10 to 1
+\begin{lstlisting}[style=python]
+x = 10
+while x > 0:
+    print(x)
+    x = x - 1
+\end{lstlisting}
+
+\item \textbf{Note}: 
+\begin{enumerate}\addtolength{\itemsep}{0.5\baselineskip}
+\item Use \texttt{for loops} over \texttt{while loops} where possible
+\item Ensure that the \texttt{while} condition evaluates to 
+\texttt{False} at some point to avoid an infinite loop
+\end{enumerate}
+
+\end{itemize}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{List Comprehensions}
+
+\begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+
+\item<1-> List comprehensions are an optimized and readible method for creating a list
+
+\item<2-> Recall the previous example where we looped over gene names and printed them in upper
+case
+\begin{lstlisting}[style=python]
+geneNames = ["Irf1", "Ccl3", "Il12rb1", "Ifng", "Cxcl10"]
+for gene in geneNames:
+    print(gene.upper())
+\end{lstlisting}
+
+\item<3-> What if I want to store the upper case gene names in another variable, 
+called \texttt{x} for simplicity?
+
+\end{itemize}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{List Comprehensions}
+
+\begin{enumerate}
+\item<1-> Using for loops:
+\begin{lstlisting}[style=python]
+x = [] # create an empty list to append to
+for gene in geneNames:
+    x.append(gene.upper())
+\end{lstlisting}
+
+\item<2-> Using list comprehension:
+\begin{lstlisting}[style=python]
+x = [gene.upper() for gene in geneNames]
+\end{lstlisting}
+
+\item<3-> What if I want to ignore gene \texttt{Ifng}?
+\begin{lstlisting}[style=python]
+x = [gene.upper() for gene in geneNames if gene != "Ifng"]
+\end{lstlisting}
+
+\end{enumerate}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{Enumerate}
+
+\begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
+\item<1-> When looping over lists, sometimes it's useful to keep track of the
+index of the iteration
+
+\item<2-> \textbf{Enumerate} is a built-in function that lets us access the
+iterable element but also its index
+
+\item<3-> Print the index next to upper cased gene name
+
+\begin{enumerate}\addtolength{\itemsep}{-1\baselineskip}
+
+\item<3-> Using a standard for loop:
+\begin{lstlisting}[style=python]
+i = 0 # index counter
+for gene in geneNames:
+    print("{0}. {1}\n".format(i+1, gene.upper()))
+    i = i + 1
+\end{lstlisting}
+
+\item<4-> Using \texttt{enumerate}:
+\begin{lstlisting}[style=python]
+for i, gene in enumerate(geneNames):
+    print("{0}. {1}\n".format(i+1, gene.upper()))
+\end{lstlisting}
+
+\end{enumerate}
+\end{itemize}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+% End of Document
+%=============================================================================%
+%=============================================================================%
+\end{document}
