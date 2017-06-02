@@ -16,6 +16,7 @@ Material for the two day introductory workshop "*Python for scientific research*
 * [05 - Plotting with `Matplotlib`](05_Matplotlib/)
 * [06 - Data analysis with `Pandas`](06_Pandas/)
 * [07 - Data visualisation with `Seaborn`](07_Seaborn/)
+* [08 - Advanced topics](08_Advanced/)
 
 Each folder corresponds to a lecture and contains the following files, for example:
 
