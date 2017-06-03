@@ -202,7 +202,7 @@ The \href{http://www.tiobe.com/tiobe-index/}{TIOBE index} is a measure of the po
 	\item<1-> Python is becoming the de facto standard for exploratory and interactive scientific research\\
 	\item[]<1-> \textbf{BUT}
 	\item<2-> Python is no programming silver bullet
-	\item<3-> Your application will ultimately dictate the tool (and a mixture of more than one language \emph{is} ok). For example:\\
+	\item<3-> Your application will ultimately dictate the tool (and a mixture of more than one language \textbf{is} ok). For example:\\
 	\begin{itemize}\addtolength{\itemsep}{0.8\baselineskip}
 		\item<4-> MATLAB excels at interfacing with hardware, e.g generating \href{https://uk.mathworks.com/products/hdl-coder.html}{hardware description language (HDL) code} to configure an integrated circuit board or connecting to a \href{https://uk.mathworks.com/products/daq.html}{data acquisition card}
 		\item<5-> R is great for data wrangling and visualisation, and statistical modelling
@@ -231,7 +231,7 @@ The \href{http://www.tiobe.com/tiobe-index/}{TIOBE index} is a measure of the po
 \end{itemize}
 
 \centering
-\includegraphics[width=0.8\textwidth]{python_interpreter.png}
+\includegraphics[width=0.75\textwidth]{python_interpreter.png}
 
 \begin{itemize}\addtolength{\itemsep}{0.5\baselineskip}
 	\item Alternatively if your code is written in a text file, e.g \texttt{my\_script.py}:
@@ -254,61 +254,62 @@ python my_script.py
 		\item syntax highlighting (making it easier to read code)
 		\item tab auto-completion (minimises typeos and lists available functions)  
 	\end{itemize}
-
-	\centering
-	\includegraphics[width=0.6\textwidth]{ipython.png}
-
 	%\item The IPyton interactive shell is what powers Jupyter in the background (i.e code that I write in these notes is interpreted and executed by the IPython shell)
 \end{itemize}
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{ipython.png}
+\end{center}
 \end{frame}
 
 %=============================================================================%
 %=============================================================================%
 \begin{frame}[fragile]
 \frametitle{Executing Python code: Spyder IDE}
-\begin{itemize}
+\begin{itemize}\addtolength{\itemsep}{.7\baselineskip}
 	\item Spyder is an integrated development environment (IDE) for scientific computing, akin to \href{https://www.rstudio.com/}{RStudio} and \href{https://uk.mathworks.com/products/matlab.html}{MATLAB} 
 	\item One place to write, execute and debug code, and explore variables
-
-	\centering
-	\includegraphics[width=0.85\textwidth]{spyder.png}
 \end{itemize}
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{spyder_annotated.pdf}
+\end{center}
 \end{frame}
 
 %=============================================================================%
 %=============================================================================%
-\begin{frame}[fragile]
-\frametitle{The Zen of Python}
-\begin{itemize}
-	\item Coding standards are important in \textit{every} programming language%, but particular emphasis is placed in Python
-	\item \href{https://www.python.org/dev/peps/pep-0008/}{PEP 8} is a style guide for python code  
-	%\item If in doubt, be \textbf{consistent} in the way you structure your code
-\end{itemize}
+% \begin{frame}[fragile]
+% \frametitle{The Zen of Python}
+% \begin{itemize}
+% 	\item Coding standards are important in \textit{every} programming language%, but particular emphasis is placed in Python
+% 	\item \href{https://www.python.org/dev/peps/pep-0008/}{PEP 8} is a style guide for python code  
+% 	%\item If in doubt, be \textbf{consistent} in the way you structure your code
+% \end{itemize}
 
-\scriptsize
-\begin{verbatim}
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those!
-\end{verbatim}
-\normalsize
-\end{frame}
+% \scriptsize
+% \begin{verbatim}
+% Beautiful is better than ugly.
+% Explicit is better than implicit.
+% Simple is better than complex.
+% Complex is better than complicated.
+% Flat is better than nested.
+% Sparse is better than dense.
+% Readability counts.
+% Special cases aren't special enough to break the rules.
+% Although practicality beats purity.
+% Errors should never pass silently.
+% Unless explicitly silenced.
+% In the face of ambiguity, refuse the temptation to guess.
+% There should be one-- and preferably only one --obvious way to do it.
+% Although that way may not be obvious at first unless you're Dutch.
+% Now is better than never.
+% Although never is often better than *right* now.
+% If the implementation is hard to explain, it's a bad idea.
+% If the implementation is easy to explain, it may be a good idea.
+% Namespaces are one honking great idea -- let's do more of those!
+% \end{verbatim}
+% \normalsize
+% \end{frame}
 
 %=============================================================================%
 %=============================================================================%
@@ -334,12 +335,13 @@ Namespaces are one honking great idea -- let's do more of those!
 		\item \href{https://www.continuum.io/downloads}{Anaconda}
 		\item \href{https://store.enthought.com/downloads/}{Enthought Canopy}
 	\end{itemize}
-	\item These distributions contain most libraries you need to get started
-	\item Here we will use Anaconda which should be installed on your machines
+	\item These distributions contain several scientific libraries to get started
+	\item Here we will use the Anaconda Python distribution and Spyder/IPython to write and run our code  
 \end{itemize}
 
 \begin{figure}
-\includegraphics[width=\textwidth]{anaconda.png}
+\includegraphics[width=.45\textwidth]{anaconda.png}\hfill
+\includegraphics[width=.45\textwidth]{spyder.png}
 \end{figure}
 
 \end{frame}
