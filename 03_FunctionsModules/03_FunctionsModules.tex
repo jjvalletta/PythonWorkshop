@@ -50,7 +50,7 @@ escapeinside={},
 keywordstyle=\color{deepblue},
 emphstyle=\color{deepred},
 stringstyle=\color{mauve},
-morekeywords={as, lambda, None}
+morekeywords={as, lambda, None, True, False}
 }
 
 % Presentation configuration
@@ -107,7 +107,7 @@ morekeywords={as, lambda, None}
 \frametitle{Motivation}
 
 \begin{itemize}\addtolength{\itemsep}{-1\baselineskip}
-	\item<1-> Imagine that we wrote a series of commands to perform a particular task, for example,
+	\item<1-> Imagine we wrote a series of commands to perform a particular task, for example,
 	searching for a motif within a DNA sequence string 
 
 \begin{lstlisting}[style=python]
@@ -222,7 +222,7 @@ out1, out2 = sum_and_divide(10, 0) # out1 = 10, out2 = None
 Python will return an object of type \texttt{None}
 
 \item<3-> Terminology
-\begin{enumerate}
+\begin{enumerate}\addtolength{\itemsep}{.5\baselineskip}
 	\item \textbf{Parameters}: the variable names defined in the function definition
 	\item \textbf{Arguments}: the values supplied to a function when it is called 
 \end{enumerate}
@@ -478,11 +478,15 @@ indices = dna_utils.find_motif(DNA, motif)
 
 %=============================================================================%
 %=============================================================================%
-\begin{frame}{Package example}
+\begin{frame}[fragile]
+\frametitle{Package example}
 
 \begin{itemize}
 	\item This is what our genomics package could look like
 \end{itemize}
+
+\begin{columns}
+\column{0.4\textwidth}
 
 \dirtree{%
 .1 genomics/.
@@ -494,15 +498,33 @@ indices = dna_utils.find_motif(DNA, motif)
 .2 fastq\_utils.py.
 .2 ....
 }
+
+\column{0.6\textwidth}
+\begin{lstlisting}[style=python]
+import genomics.dna_utils
+
+import genomics.rna_utils
+
+import genomics.fasta_utils
+
+...
+\end{lstlisting}
+\end{columns}
+
 \end{frame}
 
 %=============================================================================%
 %=============================================================================%
-\begin{frame}{Package example}
+\begin{frame}[fragile]
+\frametitle{Package example}
 
 \begin{itemize}
 	\item Or we can organise it even further
 \end{itemize}
+
+
+\begin{columns}
+\column{0.44\textwidth}
 
 \dirtree{%
 .1 genomics/.
@@ -523,6 +545,21 @@ indices = dna_utils.find_motif(DNA, motif)
 .3 read\_write.py.
 .3 ....
 }
+
+\column{0.56\textwidth}
+\begin{lstlisting}[style=python]
+import genomics.dna_utils
+
+import genomics.rna_utils
+
+import genomics.fasta.quality_control
+
+import genomics.fasta.read_write
+
+...
+\end{lstlisting}
+\end{columns}
+
 \end{frame}
 
 %=============================================================================%
@@ -622,7 +659,7 @@ if functions have the same name
 \visible<1->{\begin{block}{MATLAB\textsuperscript\textregistered}
 \begin{itemize}\addtolength{\itemsep}{0.2\baselineskip}
 	\item Python packages are equivalent to MATLAB toolboxes
-	\item All toolboxes are \textit{typically} loaded to the global namespace/workspace
+	\item Toolboxes are loaded to the global namespace/workspace
 	\item There's an equivalent \texttt{import} function introduced recently
 \end{itemize}
 \end{block}}
@@ -632,7 +669,7 @@ if functions have the same name
 	\item Python packages are equivalent to R libraries/packages 
 	\newline
 	e.g \texttt{library(tidyr)}
-	\item All packages are loaded to the global namespace/workspace
+	\item Packages are loaded to the global namespace/workspace
 	\item Using the double colon operator (\texttt{::}) conflicts can be avoided
 	\newline
 	e.g \texttt{tidyr::gather(...)}

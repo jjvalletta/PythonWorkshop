@@ -14959,7 +14959,12 @@ mysum(x, y)
 <li>using default arguments</li>
 </ul>
 </li>
+<li>For the biologists amongst you, write a function to return the complement of a DNA sequence. That is, if the input is <code>"acgt"</code> the function returns <code>"tgca"</code>. Similarly return the reverse complement of a DNA sequence.</li>
 </ol>
+<p><strong>Hint 1</strong>: Use a dictionary to specify which character is swapped with what:</p>
+<p><code>compDict = {'a': 't', 'c': 'g', 'g': 'c', 't': 'a'} # i.e 'c' should be swapped with 'g' etc.</code></p>
+<p>Then use a list comprehension to loop through each character in your string and convert to its complement using the dictionary.</p>
+<p><strong>Hint 2</strong>: To reverse a string/list use the slice operator <code>[::-1]</code></p>
 
 </div>
 </div>
@@ -14972,7 +14977,7 @@ mysum(x, y)
 <h1 id="Modules">Modules<a class="anchor-link" href="#Modules">&#182;</a></h1><p>Modules let us group related functions together, which we can then reuse in other progams</p>
 <h2 id="Exercise-2">Exercise 2<a class="anchor-link" href="#Exercise-2">&#182;</a></h2><ol>
 <li>Copy the previously defined functions <code>content()</code> and <code>find_motif()</code> to a text file and save it as <code>dna_utils.py</code></li>
-<li>In a separate script, import the newly created module <code>dna_utils</code> and call the two functions. We can do this in two different ways:</li>
+<li>In a separate script, import the newly created module <code>dna_utils</code> and call the two functions. We can do this in two ways:</li>
 </ol>
 
 </div>
