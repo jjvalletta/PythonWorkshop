@@ -13185,7 +13185,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Numpy">Numpy<a class="anchor-link" href="#Numpy">&#182;</a></h1><p>Let us start by creating arrays which are <code>Numpy</code>'s main data structure. Arrays are essentially the same as lists but with one key difference, <em>every</em> element of an array is of the <em>same</em> type for example, integer or float. We cannot mix strings and integers for example. This limitation allows us to create very efficient data structures which take up far less memory than a list.</p>
+<h1 id="Numpy">Numpy<a class="anchor-link" href="#Numpy">&#182;</a></h1><p>Let us start by creating arrays which are <code>Numpy</code>'s main data structure. Arrays are essentially the same as lists but with one key difference, <em>every</em> element of an array is of the <em>same</em> type, for example, integer or float. We cannot mix strings and integers. This limitation allows us to create very efficient data structures which take up far less memory than a list.</p>
 
 </div>
 </div>
@@ -13418,7 +13418,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.5957115418433355</pre>
+<pre>0.716383026709631</pre>
 </div>
 
 </div>
@@ -13449,7 +13449,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>1.6619148940349435</pre>
+<pre>0.37075592431133547</pre>
 </div>
 
 </div>
@@ -13489,8 +13489,8 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[-1.53914214  0.160022   -1.44443864 -0.55568855]
- [ 0.76227391 -0.4500558  -1.14694026 -0.24489042]]
+<pre>[[ 2.71706792  0.07560015  0.63982862  0.18548725]
+ [ 0.23212664 -0.3495534   0.37426656 -1.39637445]]
 </pre>
 </div>
 </div>
@@ -13521,7 +13521,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>-1.5391421398285059</pre>
+<pre>2.7170679201665484</pre>
 </div>
 
 </div>
@@ -13552,7 +13552,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>-0.24489042054526902</pre>
+<pre>-1.396374451780467</pre>
 </div>
 
 </div>
@@ -13583,7 +13583,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([-1.53914214,  0.160022  , -1.44443864, -0.55568855])</pre>
+<pre>array([ 2.71706792,  0.07560015,  0.63982862,  0.18548725])</pre>
 </div>
 
 </div>
@@ -13614,7 +13614,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([-0.55568855, -0.24489042])</pre>
+<pre>array([ 0.18548725, -1.39637445])</pre>
 </div>
 
 </div>
@@ -13632,7 +13632,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 <li>Create a 2D matrix as shown above. Use the appropriate method to compute the min, max and sum of a matrix, first across columns and then across rows</li>
 <li>Repeat the above but create the 2D matrix using random numbers generated from a uniform distribution and then from a normal distribution</li>
 </ol>
-<p><em>Hint</em>: Use the <code>axis</code> argument to specify whether you want to perform the operation column or row wise. For example <code>x.sum(axis=0)</code> will sum column wise, while <code>x.sum(axis=1)</code> sill sum row wise</p>
+<p><strong>Hint</strong>: Use the <code>axis</code> argument to specify whether you want to perform the operation column or row wise. For example <code>x.sum(axis=0)</code> will sum column wise, while <code>x.sum(axis=1)</code> sill sum row wise</p>
 
 </div>
 </div>
@@ -13652,14 +13652,14 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">sp</span>
 
-<span class="c1"># Create two random arrays</span>
-<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> 
-<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="c1"># Create two random arrays with 100 values</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> 
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="c1"># Correlation coefficientss</span>
-<span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="c1"># pearson correlation and p-value</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="c1"># pearson correlation and p-value</span>
 </pre></div>
 
 </div>
@@ -13676,7 +13676,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(0.082025735658917132, 0.66653341245843856)</pre>
+<pre>(0.00040077311125202804, 0.99684250490602655)</pre>
 </div>
 
 </div>
@@ -13690,7 +13690,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="c1"># Mann-Whitney rank test</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="c1"># Mann-Whitney rank test</span>
 </pre></div>
 
 </div>
@@ -13707,7 +13707,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>MannwhitneyuResult(statistic=414.0, pvalue=0.29984474225618518)</pre>
+<pre>MannwhitneyuResult(statistic=4707.0, pvalue=0.23739992300510165)</pre>
 </div>
 
 </div>
@@ -13721,7 +13721,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="c1"># t-test</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="c1"># t-test</span>
 </pre></div>
 
 </div>
@@ -13738,7 +13738,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Ttest_indResult(statistic=0.80942049620349699, pvalue=0.42158155577484668)</pre>
+<pre>Ttest_indResult(statistic=-0.55978742674393089, pvalue=0.57625716737389077)</pre>
 </div>
 
 </div>
@@ -13752,8 +13752,8 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">x1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="c1"># induce some relationship between x1 and x2</span>
-<span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="c1"># least squares regression</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">x1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># induce some relationship between x1 and x2</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="c1"># least squares regression</span>
 </pre></div>
 
 </div>
@@ -13770,7 +13770,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>LinregressResult(slope=3.0221878826556647, intercept=0.34040635397465657, rvalue=0.96873474598228038, pvalue=1.7251344576268693e-18, stderr=0.14627232046642683)</pre>
+<pre>LinregressResult(slope=3.1637771318611474, intercept=0.032980204117741996, rvalue=0.9570013660435096, pvalue=1.7830028224755831e-54, stderr=0.096873096219032506)</pre>
 </div>
 
 </div>
@@ -13798,17 +13798,20 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Predator-prey-equations-(Lotka-Volterra)">Predator prey equations (Lotka Volterra)<a class="anchor-link" href="#Predator-prey-equations-(Lotka-Volterra)">&#182;</a></h1><p>We will finish this practical by going through the predator prey equations introduced during the lecture. Your task is to reproduce this example in your own script. Let us first recall the Lotka Volterra equations:</p>
+<h1 id="Predator-prey-equations-(Lotka-Volterra)">Predator prey equations (Lotka Volterra)<a class="anchor-link" href="#Predator-prey-equations-(Lotka-Volterra)">&#182;</a></h1><p>We will finish this practical by going through the predator prey equations introduced during the lecture. Your task is to reproduce this example in your own script. Change the model's parameters and initial conditions and observe what happens to the output.</p>
+<p>Let us first recall the Lotka Volterra equations:</p>
 \begin{align*}
-\frac{dx}{dt} &= \alpha x - \beta xy\\
-\frac{dy}{dt} &= -\gamma y + \delta xy 
+ \frac{d{u}}{d{t}} &= \alpha u - \beta uv\\[1em]
+\frac{d{v}}{d{t}} &= -\gamma v + \delta uv 
 \end{align*}<p>Where:</p>
-<p>$x$: is the number of prey (e.g rabbits)</p>
-<p>$y$: is the number of predators (e.g foxes)</p>
-<p>$\alpha$: prey growth rate in the absence of predators</p>
-<p>$\beta$: dying rate of prey due to predation</p>
-<p>$\gamma$: dying rate of predators in the absence of prey</p>
-<p>$\delta$: predator growth rate when consuming prey</p>
+<ul>
+<li>$u$: is the number of prey (e.g rabbits)</li>
+<li>$v$: is the number of predators (e.g foxes)</li>
+<li>$\alpha$: prey growth rate in the absence of predators</li>
+<li>$\beta$: dying rate of prey due to predation</li>
+<li>$\gamma$: dying rate of predators in the absence of prey</li>
+<li>$\delta$: predator growth rate when consuming prey</li>
+</ul>
 
 </div>
 </div>
@@ -13828,21 +13831,24 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">predator_prey</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">predator_prey</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Predator prey model (Lotka Volterra) </span>
+<span class="sd">    Predator prey model (Lotka Volterra)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Constants</span>
     <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.1</span> 
+    <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.1</span>
     <span class="n">gamma</span> <span class="o">=</span> <span class="mf">1.5</span>
     <span class="n">delta</span> <span class="o">=</span> <span class="mf">0.075</span>
     
-    <span class="c1"># Define differential equation (x = x[0], y = x[1])</span>
-    <span class="n">dx_dt</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">beta</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">dy_dt</span> <span class="o">=</span> <span class="o">-</span><span class="n">gamma</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">delta</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-    <span class="k">return</span> <span class="n">dx_dt</span><span class="p">,</span> <span class="n">dy_dt</span>
+    <span class="c1"># x = [u, v] describes prey and predator populations</span>
+    <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">x</span>
+    
+    <span class="c1"># Define differential equation (u = x[0], v = x[1])</span>
+    <span class="n">du</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">u</span> <span class="o">-</span> <span class="n">beta</span><span class="o">*</span><span class="n">u</span><span class="o">*</span><span class="n">v</span>
+    <span class="n">dv</span> <span class="o">=</span> <span class="o">-</span><span class="n">gamma</span><span class="o">*</span><span class="n">v</span> <span class="o">+</span> <span class="n">delta</span><span class="o">*</span><span class="n">u</span><span class="o">*</span><span class="n">v</span>
+    
+    <span class="k">return</span> <span class="n">du</span><span class="p">,</span> <span class="n">dv</span>
 </pre></div>
 
 </div>
@@ -13909,7 +13915,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x10f440828&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x11b0f3940&gt;</pre>
 </div>
 
 </div>

@@ -23,6 +23,7 @@
 \usepackage{textpos} % textblock
 \usepackage{dirtree} % to make directory trees
 \usepackage{hyperref}
+\usepackage{amsmath} 
 \hypersetup{colorlinks=true, urlcolor=blue, linkcolor=black} 
 \renewcommand{\d}[1]{\ensuremath{\operatorname{d}\!{#1}}} % derivative d
 
@@ -98,7 +99,7 @@ morekeywords={as, lambda, None}
 		\item Use flow control commands to dictate the order in which commands are run
 		and when
 		\item Encapsulate programs into reusable functions, modules and packages
-		\item \textbf{Next}: Introducing the popular \texttt{NumPy} and \texttt{SciPy} packages
+		\item \textbf{Next}: Number crunching using \texttt{NumPy/SciPy}
 	\end{enumerate}
 
 \end{frame}
@@ -117,7 +118,7 @@ morekeywords={as, lambda, None}
 	and functions (e.g trigonometry, random number generator) 
 
 	\item<3-> The \texttt{SciPy} (scientific python) library builds on top
-	of NumPy to provide a collection of numerical algorithms for: 
+	of \texttt{NumPy} to provide a collection of numerical algorithms for: 
 	\begin{itemize}
 		\item<4-> Statistics (e.g correlation coefficient)
 		\item<5-> Signal processing (e.g Fourier transform, filtering)
@@ -176,24 +177,24 @@ np.logspace(0, 1, 10) # 10 values between 10^0 and 10^1
 \frametitle{A taste of SciPy}
 
 \begin{lstlisting}[style=python]
-import scipy.stats
+import scipy.stats as sp
 
 # Create two random arrays
 x1 = np.random.randn(30)
 x2 = np.random.randn(30)
 
 # Correlation coefficientss
-scipy.stats.pearsonr(x1, x2) # pearson correlation
-scipy.stats.spearmanr(x1, x2) # spearman correlation
-scipy.stats.kendalltau(x1, x2) # kendall correlation
+sp.pearsonr(x1, x2) # pearson correlation
+sp.spearmanr(x1, x2) # spearman correlation
+sp.kendalltau(x1, x2) # kendall correlation
 
 # Statistical tests
-scipy.stats.ttest_ind(x1, x2) # independent t-test
-scipy.stats.mannwhitneyu(x1, x2) #  Mann-Whitney rank test 
-scipy.stats.wilcoxon(x1, x2) # Wilcoxon signed-rank test
+sp.ttest_ind(x1, x2) # independent t-test
+sp.mannwhitneyu(x1, x2) #  Mann-Whitney rank test 
+sp.wilcoxon(x1, x2) # Wilcoxon signed-rank test
 
 # Least-squares regression
-scipy.stats.linregress(x1, x2)
+sp.linregress(x1, x2)
 \end{lstlisting}
 
 \end{frame}
@@ -203,20 +204,37 @@ scipy.stats.linregress(x1, x2)
 \begin{frame}[fragile]
 \frametitle{Predator prey equations (Lotka Volterra)}
 
+%Prey population = growth rate - rate at which it is preyed
+%Predator population = - natural death + food supply
+
 \begin{align*}
-\frac{\d{x}}{\d{t}} &= \alpha x - \beta xy\\
-\frac{\d{y}}{\d{t}} &= -\gamma y + \delta xy 
+ \frac{\d{u}}{\d{t}} &= \alpha u - \beta uv\\[1em]
+\frac{\d{v}}{\d{t}} &= -\gamma v + \delta uv 
 \end{align*}
 
-Where:\\
-$x$: is the number of prey (e.g rabbits)\\
-$y$: is the number of predators (e.g foxes)\\
+% \begin{align*}
+% \text{Prey population:}& \frac{\d{u}}{\d{t}} &=& \underbrace{\alpha u}_\text{own growth rate} - \underbrace{\beta uv}_\text{rate at which it's preyed upon}\\
+% \text{Prey population:}& \frac{\d{v}}{\d{t}} &=& \underbrace{-\gamma v}_\text{natural death of predators} + \underbrace{\delta uv}_\text{growth of predator population} 
+% \end{align*}
+
+
+
+
+Where:
+
+\begin{itemize}
+\item $u$: is the number of prey (e.g rabbits)
+\item $v$: is the number of predators (e.g foxes)
 %$\frac{\d{x}}{\d{t}}$: prey population growth rate\\
 %$\frac{\d{y}}{\d{t}}$: predator population growth rate\\
-$\alpha$: prey growth rate in the absence of predators\\
-$\beta$: dying rate of prey due to predation\\
-$\gamma$: dying rate of predators in the absence of prey\\
-$\delta$: predator growth rate when consuming prey\\ 
+\item $\alpha$: prey growth rate in the absence of predators
+\item $\beta$: dying rate of prey due to predation
+\item $\gamma$: dying rate of predators in the absence of prey
+\item $\delta$: predator growth rate when consuming prey
+\end{itemize}
+
+% Prey population = growth rate - rate at which it is preyed
+% Predatory population = - natural death + food supply
 
 \end{frame}
 
@@ -225,10 +243,14 @@ $\delta$: predator growth rate when consuming prey\\
 \begin{frame}[fragile]
 \frametitle{Predator prey equations in Python}
 
+\vspace{-0.4cm}
+\scriptsize
 \begin{align*}
-\frac{\d{x}}{\d{t}} &= \alpha x - \beta xy\\
-\frac{\d{y}}{\d{t}} &= -\gamma y + \delta xy 
+ \frac{\d{u}}{\d{t}} &= \alpha u - \beta uv\\[0.5em]
+\frac{\d{v}}{\d{t}} &= -\gamma v + \delta uv 
 \end{align*}
+\normalsize
+
 
 \begin{lstlisting}[style=python]
 def predator_prey(x, t):
@@ -241,11 +263,14 @@ def predator_prey(x, t):
     gamma = 1.5
     delta = 0.075
     
-    # Define differential equation (x = x[0], y = x[1])
-    dx_dt = alpha*x[0] - beta*x[0]*x[1]
-    dy_dt = -gamma*x[1] + delta*x[0]*x[1]
+    # x = [u, v] describes prey and predator populations
+    u, v = x
     
-    return dx_dt, dy_dt
+    # Define differential equation (u = x[0], v = x[1])
+    du = alpha*u - beta*u*v
+    dv = -gamma*v + delta*u*v
+    
+    return du, dv
 \end{lstlisting}
 
 \end{frame}
