@@ -312,6 +312,28 @@ model.fit(xTrain, yTrain)
 %=============================================================================%
 %=============================================================================%
 \begin{frame}[fragile]
+\frametitle{Scikit-image}
+
+\href{http://scikit-image.org/}{\texttt{skimage}} 
+is a collection of algorithms for image processing 
+
+\begin{lstlisting}[style=python]
+from skimage import data, color
+from skimage.feature import hog
+
+image = color.rgb2gray(data.astronaut()) # convert to greyscale
+hogs, hogs_image = hog(image, visualise=True) # edge detection
+\end{lstlisting}
+
+\vspace{-.5cm}
+\centering
+\includegraphics[width=.75\textwidth]{hogs.pdf}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
 \frametitle{Networkx}
 
 \href{https://networkx.github.io/}{\texttt{networkx}} is a package 
@@ -353,35 +375,6 @@ nx.draw(g, node_size=1500,
 %=============================================================================%
 %=============================================================================%
 \begin{frame}[fragile]
-\frametitle{ArcGIS}
-
-\href{https://developers.arcgis.com/python/}{\texttt{arcgis}} is a package 
-for GIS visualisation and analysis, spatial data management and GIS system
-administration tasks
-
-\vspace{0.2cm}
-
-\begin{lstlisting}[style=python]
-from arcgis.gis import GIS
-
-# Create a GIS object (anonymous user)
-gis = GIS()
-
-# Get map of Cornwall
-myMap = gis.map("Cornwall, UK")
-myMap
-\end{lstlisting}
-
-\vspace{-0.5cm}
-
-\centering
-\includegraphics[width=.7\textwidth]{arcgis.png}
-
-\end{frame}
-
-%=============================================================================%
-%=============================================================================%
-\begin{frame}[fragile]
 \frametitle{MyGene}
 
 \href{http://docs.mygene.info/projects/mygene-py/en/latest/}{\texttt{mygene}} provides 
@@ -415,6 +408,56 @@ mg.querymany(qterms=["Ifng", "Ccl3"], scopes="symbol",
 ....
 ....
 \end{verbatim}}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{Biopython}
+
+\href{http://biopython.org/wiki/Biopython}{\texttt{Biopython}} contains
+a comprehensive list of tools for computational molecular biology
+
+\begin{itemize} 
+\item Parsers for various Bioinformatics file formats (BLAST, Clustalw, FASTA, Genbank,...), 
+\item Access to online services (NCBI, Expasy,...) 
+\item ...
+\end{itemize}
+
+\vfill
+
+\centering
+\includegraphics[width=.7\textwidth]{biopython.jpg}
+
+\end{frame}
+
+%=============================================================================%
+%=============================================================================%
+\begin{frame}[fragile]
+\frametitle{ArcGIS}
+
+\href{https://developers.arcgis.com/python/}{\texttt{arcgis}} is a package 
+for GIS visualisation and analysis, spatial data management and GIS system
+administration tasks
+
+\vspace{0.2cm}
+
+\begin{lstlisting}[style=python]
+from arcgis.gis import GIS
+
+# Create a GIS object (anonymous user)
+gis = GIS()
+
+# Get map of Cornwall
+myMap = gis.map("Cornwall, UK")
+myMap
+\end{lstlisting}
+
+\vspace{-0.5cm}
+
+\centering
+\includegraphics[width=.7\textwidth]{arcgis.png}
 
 \end{frame}
 
