@@ -13273,8 +13273,8 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2D array/matrix</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2D array</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 
@@ -13290,8 +13290,9 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[1 2 3 4]
- [5 6 7 8]]
+<pre>[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
 </pre>
 </div>
 </div>
@@ -13322,7 +13323,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(2, 4)</pre>
+<pre>(3, 3)</pre>
 </div>
 
 </div>
@@ -13336,7 +13337,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="c1"># element -element -multiplication</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="c1"># element-by-element multiplication</span>
 </pre></div>
 
 </div>
@@ -13353,8 +13354,9 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([[ 1,  4,  9, 16],
-       [25, 36, 49, 64]])</pre>
+<pre>array([[ 1,  4,  9],
+       [16, 25, 36],
+       [49, 64, 81]])</pre>
 </div>
 
 </div>
@@ -13368,7 +13370,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span> <span class="c1"># matrix multiplication</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="c1"># matrix multiplication</span>
 </pre></div>
 
 </div>
@@ -13385,8 +13387,9 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([[ 30,  70],
-       [ 70, 174]])</pre>
+<pre>array([[ 30,  36,  42],
+       [ 66,  81,  96],
+       [102, 126, 150]])</pre>
 </div>
 
 </div>
@@ -13400,8 +13403,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generate random numbers</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="c1"># from a uniform distribution </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># matrix multiplication (cast 2D numpy array as an object of type matrix)</span>
 </pre></div>
 
 </div>
@@ -13418,7 +13420,9 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.716383026709631</pre>
+<pre>matrix([[ 30,  36,  42],
+        [ 66,  81,  96],
+        [102, 126, 150]])</pre>
 </div>
 
 </div>
@@ -13432,7 +13436,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span> <span class="c1"># from a normal distribution</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13449,7 +13453,101 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.37075592431133547</pre>
+<pre>numpy.ndarray</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[11]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>numpy.matrixlib.defmatrix.matrix</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generate random numbers</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="c1"># from a uniform distribution </span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[12]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.6302146071940589</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span> <span class="c1"># from a normal distribution</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[13]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>-2.1663209315574354</pre>
 </div>
 
 </div>
@@ -13470,7 +13568,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># create a 2 x 4 array of random numbers</span>
@@ -13489,103 +13587,10 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[ 2.71706792  0.07560015  0.63982862  0.18548725]
- [ 0.23212664 -0.3495534   0.37426656 -1.39637445]]
+<pre>[[-0.83738296  0.87313289  2.71674803 -0.73033481]
+ [-0.57737879 -1.26920495 -1.12461493  0.01924878]]
 </pre>
 </div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># access first row first column</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[12]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>2.7170679201665484</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># access last row las column</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[13]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>-1.396374451780467</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="c1"># access all the columns of the first row</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[14]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array([ 2.71706792,  0.07560015,  0.63982862,  0.18548725])</pre>
-</div>
-
 </div>
 
 </div>
@@ -13597,7 +13602,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># access all the rows of the last column</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># access first row first column</span>
 </pre></div>
 
 </div>
@@ -13614,7 +13619,100 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([ 0.18548725, -1.39637445])</pre>
+<pre>-0.83738296100565301</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># access last row las column</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[16]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.019248775378290374</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="c1"># access all the columns of the first row</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[17]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([-0.83738296,  0.87313289,  2.71674803, -0.73033481])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># access all the rows of the last column</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[18]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([-0.73033481,  0.01924878])</pre>
 </div>
 
 </div>
@@ -13649,7 +13747,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">sp</span>
@@ -13671,12 +13769,12 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[16]:</div>
+<div class="prompt output_prompt">Out[19]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(0.00040077311125202804, 0.99684250490602655)</pre>
+<pre>(0.20001962033277104, 0.046014505071164766)</pre>
 </div>
 
 </div>
@@ -13687,7 +13785,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="c1"># Mann-Whitney rank test</span>
@@ -13702,12 +13800,12 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[17]:</div>
+<div class="prompt output_prompt">Out[20]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>MannwhitneyuResult(statistic=4707.0, pvalue=0.23739992300510165)</pre>
+<pre>MannwhitneyuResult(statistic=3935.0, pvalue=0.0046477924499814379)</pre>
 </div>
 
 </div>
@@ -13718,7 +13816,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span> <span class="c1"># t-test</span>
@@ -13733,12 +13831,12 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[18]:</div>
+<div class="prompt output_prompt">Out[21]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Ttest_indResult(statistic=-0.55978742674393089, pvalue=0.57625716737389077)</pre>
+<pre>Ttest_indResult(statistic=2.4758606631178299, pvalue=0.014130822489291615)</pre>
 </div>
 
 </div>
@@ -13749,7 +13847,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">x1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># induce some relationship between x1 and x2</span>
@@ -13765,12 +13863,12 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[19]:</div>
+<div class="prompt output_prompt">Out[22]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>LinregressResult(slope=3.1637771318611474, intercept=0.032980204117741996, rvalue=0.9570013660435096, pvalue=1.7830028224755831e-54, stderr=0.096873096219032506)</pre>
+<pre>LinregressResult(slope=3.157248181970675, intercept=-0.071431407712371331, rvalue=0.93845706051114719, pvalue=4.8674893928734474e-47, stderr=0.1173811846858193)</pre>
 </div>
 
 </div>
@@ -13828,7 +13926,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">predator_prey</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
@@ -13868,7 +13966,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="k">import</span> <span class="n">odeint</span>
@@ -13885,7 +13983,7 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We haven&#39;t introduced the plotting package yet, so don&#39;t worry about this bit, </span>
@@ -13910,12 +14008,12 @@ ejxHDh14f6v9X+r556C33rrfX//Z
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[22]:</div>
+<div class="prompt output_prompt">Out[25]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x11b0f3940&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x10cb34828&gt;</pre>
 </div>
 
 </div>

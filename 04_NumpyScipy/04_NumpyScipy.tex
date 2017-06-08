@@ -143,11 +143,12 @@ x.min() # return min of array
 x.max() # return max of array
 x.sum() # sum all elements in array
 
-# 2D array/matrix
-x = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
-x*x # element-element-multiplication
+# 2D array
+x = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+x*x # element-by-element multiplication
 x.shape # return dimensions of matrix
-np.dot(x, x.transpose()) # matrix multiplication
+np.dot(x, x) # matrix multiplication
+np.mat(x)*np.mat(x) # matrix multiplication (cast as matrix)
 \end{lstlisting}
 
 \end{frame}
