@@ -15119,6 +15119,54 @@ mysum(x, y)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>NOTE</strong>: When you import a module, Python <em>caches</em> it in memory. This means that if you try to import the <em>same</em> module again it will just use what's already in the cache. This is great news as it speeds things up, especially if the same module is imported by several other modules. However, what this means is that if you do any changes to your module, those changes won't take affect, as Python would still be using the cached version. To circumvent this we need to reload the module. This is frequently done when testing and debugging a module.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Let&#39;s say I wrote a new function in dna_utils</span>
+<span class="kn">import</span> <span class="nn">dna_utils</span> <span class="c1"># just by running this command I won&#39;t have access to the new function, I have to reload the module </span>
+
+<span class="c1"># Reload the module</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">dna_utils</span><span class="p">)</span> <span class="c1"># reload the module dna_utils</span>
+
+<span class="c1"># Now I can call my new function in dna_utils</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[13]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;module &#39;dna_utils&#39; from &#39;/Users/jjv207/PythonWorkshop/03_FunctionsModules/dna_utils.py&#39;&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Package">Package<a class="anchor-link" href="#Package">&#182;</a></h1><p>A package is simply a group of related modules. Using the <code>from ... import ...</code> command you can import all/some modules of a package and all/some functions from those modules. Here we will introduce popular Python packages which are included in most installations, like Anaconda which you are all using.</p>
 <p><strong>Note</strong></p>
 <ul>
@@ -15141,7 +15189,7 @@ mysum(x, y)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
@@ -15158,7 +15206,7 @@ mysum(x, y)
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[13]:</div>
+<div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -15174,7 +15222,7 @@ mysum(x, y)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">path</span> <span class="c1"># system paths that Python uses to search for packages/modules</span>
@@ -15189,7 +15237,7 @@ mysum(x, y)
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[14]:</div>
+<div class="prompt output_prompt">Out[15]:</div>
 
 
 
@@ -15214,7 +15262,7 @@ mysum(x, y)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span> <span class="c1"># path for Python&#39;s interpreter</span>
@@ -15229,7 +15277,7 @@ mysum(x, y)
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[15]:</div>
+<div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -15255,7 +15303,7 @@ mysum(x, y)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -15268,7 +15316,7 @@ mysum(x, y)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span> <span class="c1"># get current working directory</span>
@@ -15283,7 +15331,7 @@ mysum(x, y)
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[17]:</div>
+<div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -15299,7 +15347,7 @@ mysum(x, y)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;/Users/jjv207/PythonWorkshop/03_FunctionsModules&quot;</span><span class="p">)</span> <span class="c1"># change working directory</span>
@@ -15312,7 +15360,7 @@ mysum(x, y)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># join directory/file paths</span>
@@ -15330,7 +15378,7 @@ mysum(x, y)
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[19]:</div>
+<div class="prompt output_prompt">Out[20]:</div>
 
 
 
